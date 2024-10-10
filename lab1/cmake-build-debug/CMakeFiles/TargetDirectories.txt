@@ -1,0 +1,5 @@
+/Users/vladislavreznik/CLionProjects/OS-mai/lab1/cmake-build-debug/CMakeFiles/lab1.dir
+/Users/vladislavreznik/CLionProjects/OS-mai/lab1/cmake-build-debug/CMakeFiles/first_child.dir
+/Users/vladislavreznik/CLionProjects/OS-mai/lab1/cmake-build-debug/CMakeFiles/second_child.dir
+/Users/vladislavreznik/CLionProjects/OS-mai/lab1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/vladislavreznik/CLionProjects/OS-mai/lab1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
