@@ -1,0 +1,24 @@
+cmake_minimum_required(VERSION 3.10)
+project(Lab4)
+
+set(CMAKE_C_STANDARD 99)
+
+# Настраиваем пути вывода
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
+# На macOS динамические библиотеки обычно идут с расширением .dylib
+if(APPLE)
+    set(CMAKE_SHARED_LIBRARY_SUFFIX ".dylib")
+endif()
+
+include_directories(${CMAKE_SOURCE_DIR})
+
+add_library(derivative SHARED derivative_one_sided.c derivative_central.c)
+add_library(area SHARED area_rectangle.c area_triangle.c)
+
+add_executable(main_static main_static.c)
+target_link_libraries(main_static derivative area m)
+
+add_executable(main_dynamic main_dynamic.c)
+target_link_libraries(main_dynamic dl m)
