@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 3.10)
+project(lab5_7 C)
+
+set(CMAKE_C_STANDARD 99)
+
+# Указываем пути к заголовочным файлам
+include_directories(include)
+include_directories(/opt/homebrew/opt/rabbitmq-c/include)
+
+# Указываем исходные файлы
+set(SOURCES
+    src/tree_manager.c
+    src/rabbitmq_utils.c
+    main.c  # main.c находится в корневой директории
+)
+
+# Добавляем исполняемый файл
+add_executable(main ${SOURCES})
+
+# Указываем, что нужно линковать с библиотекой rabbitmq-c
+find_library(RABBITMQ_LIB rabbitmq PATHS /opt/homebrew/opt/rabbitmq-c/lib)
+if(NOT RABBITMQ_LIB)
+    message(FATAL_ERROR "Could not find the rabbitmq-c library")
+endif()
+target_link_libraries(main ${RABBITMQ_LIB})
